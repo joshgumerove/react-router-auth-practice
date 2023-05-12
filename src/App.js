@@ -13,6 +13,7 @@ import { UserDetails } from "./components/UserDetails";
 import { Admin } from "./components/Admin";
 import { Profile } from "./components/Profile";
 import { AuthProvider } from "./components/auth";
+import { Login } from "./components/Login";
 const LazyAbout = lazy(() => import("./components/About"));
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="new" element={<NewProducts />} />
         </Route>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </AuthProvider>
