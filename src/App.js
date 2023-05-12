@@ -11,6 +11,7 @@ import { NewProducts } from "./components/NewProducts";
 import { Users } from "./components/Users";
 import { UserDetails } from "./components/UserDetails";
 import { Admin } from "./components/Admin";
+import { Profile } from "./components/Profile";
 const LazyAbout = lazy(() => import("./components/About"));
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
