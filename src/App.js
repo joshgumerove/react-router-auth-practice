@@ -14,6 +14,8 @@ import { Admin } from "./components/Admin";
 import { Profile } from "./components/Profile";
 import { AuthProvider } from "./components/auth";
 import { Login } from "./components/Login";
+import { RequireAuth } from "./components/RequireAuth";
+
 const LazyAbout = lazy(() => import("./components/About"));
 
 function App() {
@@ -41,7 +43,14 @@ function App() {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
