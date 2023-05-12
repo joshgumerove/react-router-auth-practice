@@ -12,10 +12,13 @@ import { Users } from "./components/Users";
 import { UserDetails } from "./components/UserDetails";
 import { Admin } from "./components/Admin";
 import { Profile } from "./components/Profile";
+import { AuthProvider } from "./components/auth";
 const LazyAbout = lazy(() => import("./components/About"));
+
 function App() {
+  // wrapping everything in AuthProvider gives entire app access to login, logout and user values
   return (
-    <>
+    <AuthProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -40,7 +43,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 
